@@ -3,6 +3,7 @@ package GestionBibliotheque;
 import jakarta.persistence.*;
 import org.hibernate.boot.models.annotations.spi.ColumnDetails;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,9 +16,9 @@ public class Emprunt implements Serializable {
     @Column(name = "ID")
     private int id;
     @Column(name = "DATE_DEBUT")
-    private Date dateDebut;
+    private LocalDate dateDebut;
     @Column(name = "DATE_FIN")
-    private Date dateFin;
+    private LocalDate dateFin;
     @Column(name = "DELAI")
     private int delai;
     @ManyToOne
@@ -35,7 +36,7 @@ public class Emprunt implements Serializable {
 
     public Emprunt() {}
 
-    public Emprunt(Date dateDebut, Date dateFin, int delai) {
+    public Emprunt(LocalDate dateDebut, LocalDate dateFin, int delai) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.delai = delai;
@@ -45,19 +46,19 @@ public class Emprunt implements Serializable {
         return id;
     }
 
-    public Date getDateDebut() {
+    public LocalDate getDateDebut() {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut) {
+    public void setDateDebut(LocalDate dateDebut) {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin() {
+    public LocalDate getDateFin() {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin) {
+    public void setDateFin(LocalDate dateFin) {
         this.dateFin = dateFin;
     }
 

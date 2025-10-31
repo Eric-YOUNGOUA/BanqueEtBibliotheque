@@ -10,8 +10,16 @@ public class TestBanque {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        Compte compte = new Compte("AFTYZ",17298373);
-        em.persist(compte);
+        LivretA art = new LivretA("123",100.0,200.0);
+        em.persist(art);
         em.getTransaction().commit();
+
+        em.getTransaction().begin();
+        Adresse SciBerete=new Adresse(8,"rue d'Osnabruck",49100,"Angers");
+        System.out.println("\n\n\nAdresse: "+SciBerete.toString()+"\n\n\n");
+        em.getTransaction().commit();
+
+        em.close();
+        emf.close();
     }
 }

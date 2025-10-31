@@ -24,6 +24,9 @@
         <class>AppliBancaire.Client</class>
         <class>AppliBancaire.Compte</class>
         <class>AppliBancaire.Operation</class>
+        <class>AppliBancaire.LivretA</class>
+        <class>AppliBancaire.AssuranceVie</class>
+        <class>AppliBancaire.Adresse</class>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/banque"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>

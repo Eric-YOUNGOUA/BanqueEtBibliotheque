@@ -1,12 +1,23 @@
 package AppliBancaire;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "AssuranceVie")
 public class AssuranceVie extends Compte implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "numero")
     private String numero;
+    @Column(name = "solde")
     private double solde;
+    @Column(name = "dateFin")
     private LocalDate dateFin;
+    @Column(name = "taux")
     private double taux;
     public AssuranceVie(){}
     public AssuranceVie(String numero, double solde, LocalDate dateFin, double taux) {

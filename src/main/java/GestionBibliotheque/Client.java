@@ -58,6 +58,10 @@ public class Client implements Serializable {
         return emprunts;
     }
 
+    public void setEmprunts(Emprunt emprunts) {
+        this.emprunts.add(emprunts);
+    }
+
     @Override
     public String toString() {
         return "Client{" +
