@@ -7,6 +7,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Compte")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +23,11 @@ public class Compte implements Serializable {
             fetch = FetchType.LAZY // Optionnel : chargement différé par défaut, meilleur pour la performance
     )
     private Set<Operation>operations;
-    @ManyToMany(mappedBy = "comptes")
+    @ManyToMany(mappedBy = "comptes",cascade = CascadeType.PERSIST)
     private Set<Client> clients;
 
     public Compte() {}
+
     public Compte(String numero, double solde) {
         this.numero = numero;
         this.solde = solde;

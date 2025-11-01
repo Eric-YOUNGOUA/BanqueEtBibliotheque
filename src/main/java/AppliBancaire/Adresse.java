@@ -8,7 +8,9 @@ public class Adresse {
     private String rue;
     private int codePostal;
     private String ville;
+
     public Adresse() {}
+
     public Adresse(int numero, String rue, int codePostal, String ville) {
         this.numero = numero;
         this.rue = rue;

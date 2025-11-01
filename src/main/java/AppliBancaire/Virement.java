@@ -1,17 +1,20 @@
 package AppliBancaire;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+@Entity
 public class Virement extends Operation{
-    private LocalDateTime date;
-    private double montant;
-    private String motif;
+    @Column(name = "beneficiare")
     private String beneficiare;
 
     public Virement(){}
-    public Virement(LocalDateTime date, double montant, String motif, String beneficiare){
-        super(date,montant,motif);
+    public Virement(LocalDateTime date, double montant, String motif, Compte compte, String beneficiare) {
+        super(date,montant,motif,compte);
         this.beneficiare = beneficiare;
     }
 
@@ -21,15 +24,5 @@ public class Virement extends Operation{
 
     public void setBeneficiare(String beneficiare) {
         this.beneficiare = beneficiare;
-    }
-
-    @Override
-    public String toString() {
-        return "Virement{" +
-                "date=" + date +
-                ", montant=" + montant +
-                ", motif='" + motif + '\'' +
-                ", beneficiare='" + beneficiare + '\'' +
-                '}';
     }
 }

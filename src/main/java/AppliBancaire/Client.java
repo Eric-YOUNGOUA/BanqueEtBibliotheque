@@ -3,6 +3,7 @@ package AppliBancaire;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -21,21 +22,24 @@ public class Client implements Serializable{
     private LocalDate dateNaissance;
     @Embedded
     private Adresse adresse;
-    @ManyToOne
-    @JoinColumn(name = "nomBanque", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "banqueId", nullable = false)
     private Banque banque;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "COMPO",
+    @JoinTable(name = "compteClient",
             joinColumns = @JoinColumn(name = "idClient"),
             inverseJoinColumns = @JoinColumn(name = "idCompte"))
     private Set<Compte> comptes;
 
     public Client() {}
-    public Client(String nom, String prenom, LocalDate dateNaissance,Adresse adresse) {
+
+    public Client(String nom, String prenom, LocalDate dateNaissance,Adresse adresse,Banque banque) {
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
         this.adresse = adresse;
+        this.banque = banque;
+        this.comptes =  new HashSet<Compte>();
     }
 
     public int getId() {
@@ -74,6 +78,14 @@ public class Client implements Serializable{
         this.banque = banque;
     }
 
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(Adresse adresse) {
+        this.adresse = adresse;
+    }
+
     public Set<Compte> getComptes() {
         return comptes;
     }
@@ -82,11 +94,15 @@ public class Client implements Serializable{
         this.comptes = comptes;
     }
 
-    public Adresse getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(Adresse adresse) {
-        this.adresse = adresse;
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", dateNaissance=" + dateNaissance +
+                ", adresse=" + adresse +
+                ", banque=" + banque +
+                '}';
     }
 }
