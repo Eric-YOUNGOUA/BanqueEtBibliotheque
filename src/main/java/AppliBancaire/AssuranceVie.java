@@ -35,4 +35,6 @@ public class AssuranceVie extends Compte implements Serializable {
     public void setTaux(double taux) {
         this.taux = taux;
     }
+
+
 }

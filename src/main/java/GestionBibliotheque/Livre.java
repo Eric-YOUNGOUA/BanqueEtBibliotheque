@@ -16,7 +16,7 @@ public class Livre implements Serializable {
     private String nom;
     @Column(name = "AUTEUR")
     private String auteur;
-    @ManyToMany(mappedBy = "livre")
+    @ManyToMany(mappedBy = "livre",cascade =CascadeType.ALL)
     private Set<Emprunt> emprunt;
 
     {
@@ -50,10 +50,12 @@ public class Livre implements Serializable {
         this.auteur = auteur;
     }
 
-
-
     public Set<Emprunt> getEmprunt() {
         return emprunt;
+    }
+
+    public void setEmprunt(Set<Emprunt> emprunt) {
+        this.emprunt = emprunt;
     }
 
     @Override

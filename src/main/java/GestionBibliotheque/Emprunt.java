@@ -21,10 +21,10 @@ public class Emprunt implements Serializable {
     private LocalDate dateFin;
     @Column(name = "DELAI")
     private int delai;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ID_CLIENT", nullable = false)
     private Client idClient;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "COMPO",
             joinColumns = @JoinColumn(name = "ID_EMP"),
             inverseJoinColumns = @JoinColumn(name = "ID_LIV"))
@@ -36,10 +36,11 @@ public class Emprunt implements Serializable {
 
     public Emprunt() {}
 
-    public Emprunt(LocalDate dateDebut, LocalDate dateFin, int delai) {
+    public Emprunt(LocalDate dateDebut, LocalDate dateFin, int delai,Client idClient) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.delai = delai;
+        this.idClient = idClient;
     }
 
     public int getId() {
@@ -74,9 +75,16 @@ public class Emprunt implements Serializable {
         return idClient;
     }
 
+    public void setIdClient(Client idClient) {
+        this.idClient = idClient;
+    }
 
     public Set<Livre> getLivre() {
         return livre;
+    }
+
+    public void setLivre(Set<Livre> livre) {
+        this.livre = livre;
     }
 
     @Override

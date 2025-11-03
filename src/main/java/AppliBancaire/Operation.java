@@ -67,4 +67,15 @@ public class Operation implements Serializable {
     public void setCompte(Compte compte) {
         this.compte = compte;
     }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "id=" + id +
+                ", date=" + date +
+                ", montant=" + montant +
+                ", motif='" + motif + '\'' +
+                ", compte=" + compte +
+                '}';
+    }
 }

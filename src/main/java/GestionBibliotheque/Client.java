@@ -58,8 +58,8 @@ public class Client implements Serializable {
         return emprunts;
     }
 
-    public void setEmprunts(Emprunt emprunts) {
-        this.emprunts.add(emprunts);
+    public void setEmprunts(Set<Emprunt> emprunts) {
+        this.emprunts = emprunts;
     }
 
     @Override

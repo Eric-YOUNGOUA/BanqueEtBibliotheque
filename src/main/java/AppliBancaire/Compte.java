@@ -68,4 +68,13 @@ public class Compte implements Serializable {
     public void setClients(Set<Client> clients) {
         this.clients = clients;
     }
+
+    @Override
+    public String toString() {
+        return "Compte{" +
+                "solde=" + solde +
+                ", numero='" + numero + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

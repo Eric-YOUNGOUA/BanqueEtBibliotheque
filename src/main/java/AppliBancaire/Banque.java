@@ -45,4 +45,12 @@ public class Banque implements Serializable {
     public void setClients(Set<Client> clients) {
         this.clients = clients;
     }
+
+    @Override
+    public String toString() {
+        return "Banque{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
 }
