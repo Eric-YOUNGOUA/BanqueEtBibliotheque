@@ -97,7 +97,6 @@ public class Client implements Serializable{
     @Override
     public String toString() {
         return "Client{" +
-                "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", dateNaissance=" + dateNaissance +

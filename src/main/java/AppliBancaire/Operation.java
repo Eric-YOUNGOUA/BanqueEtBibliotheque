@@ -71,7 +71,6 @@ public class Operation implements Serializable {
     @Override
     public String toString() {
         return "Operation{" +
-                "id=" + id +
                 ", date=" + date +
                 ", montant=" + montant +
                 ", motif='" + motif + '\'' +

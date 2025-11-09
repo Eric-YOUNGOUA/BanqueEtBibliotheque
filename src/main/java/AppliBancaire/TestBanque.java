@@ -1,9 +1,9 @@
 package AppliBancaire;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -68,16 +68,8 @@ public class TestBanque {
 
 //Insérer des opérations de type Virement sur un compte
 
-
-        em.getTransaction().begin();
-
         Virement virement1 = new Virement(LocalDateTime.now().plusWeeks(2).plusSeconds(9), 3000.0, "Virement vers LivretA", compte, "LIV001");
         Virement virement2 = new Virement(LocalDateTime.now().minusHours(7), 150.0, "Virement vers AssuranceVie", compte, "ASS001");
-
-        em.persist(virement1);
-        em.persist(virement2);
-
-        em.getTransaction().commit();
 
 //Insérer des opérations classiques sur un compte
 
@@ -86,10 +78,21 @@ public class TestBanque {
 
         Operation op1 = new Operation(LocalDateTime.now(), 5000.0, "Retrait DAB", compte);
         Operation op2 = new Operation(LocalDateTime.now(), 100.0, "Paiement CB", compte);
+        compte.setOperations(Set.of(op1,op2,virement1,virement2));
+        em.persist(compte);
 
-        em.persist(op1);
-        em.persist(op2);
+        em.getTransaction().commit();
 
+ //Ajout de données dans la database:
+        LivretA livreta1=new LivretA("LIV002", 27372.0, 3.0);
+        livreta1.setClients(Set.of(mike));
+        AssuranceVie assuranceVie1=new AssuranceVie("ASS002", 5000.0,LocalDate.now(), 2.0);
+        assuranceVie1.setClients(Set.of(mike));
+        mike.setComptes(Set.of(assuranceVie1,livreta1,mikeCompte));
+        Virement virement=new Virement(LocalDateTime.now().plusWeeks(7),50000,"Paiement Voiture",mikeCompte,"Toyota");
+        mikeCompte.setOperations(Set.of(virement));
+        em.getTransaction().begin();
+        em.persist(mike);
         em.getTransaction().commit();
 
 //Afficher tous les comptes d'une personne donnée :
@@ -125,6 +128,13 @@ public class TestBanque {
         TypedQuery<Compte> query3=em.createQuery("select distinct c from Compte c join c.operations co",Compte.class);
         List<Compte> comptes3=query3.getResultList();
         for (Compte c : comptes3) {
+            System.out.println(c.toString());
+        }
+
+//Afficher tous les comptes du client :
+        System.out.println("\n\n\n\nAfficher tous les comptes du client");
+        Set<Compte> comptes4=mike.getComptes();
+        for (Compte c : comptes4) {
             System.out.println(c.toString());
         }
 

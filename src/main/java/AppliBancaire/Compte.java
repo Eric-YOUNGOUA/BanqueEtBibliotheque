@@ -74,7 +74,6 @@ public class Compte implements Serializable {
         return "Compte{" +
                 "solde=" + solde +
                 ", numero='" + numero + '\'' +
-                ", id=" + id +
                 '}';
     }
 }
