@@ -25,4 +25,15 @@ public class Virement extends Operation{
     public void setBeneficiare(String beneficiare) {
         this.beneficiare = beneficiare;
     }
+
+    @Override
+    public String toString(){
+        return "Virement {"+
+                "date ="+this.getDate()+
+                ", montant ="+this.getMontant()+
+                ", motif="+this.getMotif()+
+                ", compte="+this.getCompte()+
+                ", beneficiare ="+this.getBeneficiare()+
+                "}";
+    }
 }

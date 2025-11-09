@@ -36,5 +36,13 @@ public class AssuranceVie extends Compte implements Serializable {
         this.taux = taux;
     }
 
+    @Override
+    public String toString() {
+        return "Compte{" +
+                "solde=" + getSolde() +
+                ", numero='" + getNumero() +
+                ", taux=" + taux +
+                '}';
+    }
 
 }

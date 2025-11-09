@@ -22,4 +22,13 @@ public class LivretA extends Compte implements Serializable {
     public void setTaux(double taux) {
         this.taux = taux;
     }
+
+    @Override
+    public String toString() {
+        return "Compte{" +
+                "solde=" + getSolde() +
+                ", numero='" + getNumero() +
+                ", taux=" + taux +
+                '}';
+    }
 }
