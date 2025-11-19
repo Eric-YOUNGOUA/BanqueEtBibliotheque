@@ -32,7 +32,7 @@ public class Virement extends Operation{
                 "date ="+this.getDate()+
                 ", montant ="+this.getMontant()+
                 ", motif="+this.getMotif()+
-                ", compte="+this.getCompte()+
+                ", compte="+this.getCompte().getNumero()+
                 ", beneficiare ="+this.getBeneficiare()+
                 "}";
     }

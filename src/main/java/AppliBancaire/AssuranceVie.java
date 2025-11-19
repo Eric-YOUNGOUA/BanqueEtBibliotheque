@@ -41,7 +41,8 @@ public class AssuranceVie extends Compte implements Serializable {
         return "Compte{" +
                 "solde=" + getSolde() +
                 ", numero='" + getNumero() +
-                ", taux=" + taux +
+                ", LocalDate=" + getDateFin() +
+                ", taux=" + getTaux() +
                 '}';
     }
 

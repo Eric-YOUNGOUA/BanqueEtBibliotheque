@@ -35,6 +35,6 @@ public class Adresse {
     }
 
     public String toString() {
-        return numero + " " + rue + ", " + codePostal + ", " + ville;
+        return getNumero() + " " + getRue() + ", " + getCodePostal() + ", " + getVille();
     }
 }

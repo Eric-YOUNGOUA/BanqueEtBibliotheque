@@ -97,11 +97,11 @@ public class Client implements Serializable{
     @Override
     public String toString() {
         return "Client{" +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", dateNaissance=" + dateNaissance +
-                ", adresse=" + adresse +
-                ", banque=" + banque +
+                ", nom='" + getNom() + '\'' +
+                ", prenom='" + getPrenom() + '\'' +
+                ", dateNaissance=" + getDateNaissance() +
+                ", adresse=" + getAdresse() +
+                ", banque=" + getBanque() +
                 '}';
     }
 }

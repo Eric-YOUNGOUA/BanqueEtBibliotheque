@@ -49,7 +49,7 @@ public class Banque implements Serializable {
     @Override
     public String toString() {
         return "Banque{" +
-                ", nom='" + nom + '\'' +
+                ", nom='" + getNom() + '\'' +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ package GestionBibliotheque;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 public class TestBibliotheque {
     static void main() {

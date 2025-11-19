@@ -71,10 +71,10 @@ public class Operation implements Serializable {
     @Override
     public String toString() {
         return "Operation{" +
-                ", date=" + date +
-                ", montant=" + montant +
-                ", motif='" + motif + '\'' +
-                ", compte=" + compte +
+                ", date=" + getDate() +
+                ", montant=" + getMontant() +
+                ", motif='" + getMotif()     + '\'' +
+                ", compte=" + getCompte() +
                 '}';
     }
 }

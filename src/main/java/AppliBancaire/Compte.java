@@ -72,8 +72,8 @@ public class Compte implements Serializable {
     @Override
     public String toString() {
         return "Compte{" +
-                "solde=" + solde +
-                ", numero='" + numero + '\'' +
+                "solde=" + getSolde() +
+                ", numero='" + getNumero() + '\'' +
                 '}';
     }
 }

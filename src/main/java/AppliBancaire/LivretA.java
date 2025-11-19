@@ -28,7 +28,7 @@ public class LivretA extends Compte implements Serializable {
         return "Compte{" +
                 "solde=" + getSolde() +
                 ", numero='" + getNumero() +
-                ", taux=" + taux +
+                ", taux=" + getTaux() +
                 '}';
     }
 }
